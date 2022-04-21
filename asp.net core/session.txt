@@ -1,0 +1,19 @@
+<PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+ ============================================================================
+ @page
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+<h1>@HttpContextAccessor.HttpContext.Session.GetString("Name")</h1>
+==================================================================
+ HttpContext.Session.SetString(SessionName, "Abhishek");
+ 
+ HttpContext.Session.SetString("Name", "Abhishek");
+
+ ViewBag.Sess = HttpContext.Session.GetString("Name");
+ ============================================================
+ 
+  services.AddControllersWithViews();
+           
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSession();
